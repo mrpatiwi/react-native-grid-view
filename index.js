@@ -33,11 +33,9 @@ var CollectionView = React.createClass({
     },
     renderGroup: function(group) {
       var that = this;
-      var items = group.map(function(item, index) {
-        return that.props.renderItem(item, index);
-      });
+      var items = group.map(that.props.renderItem);
       return (
-        <View style={styles.group}>
+        <View style={[styles.group, that.props.rowStyle]}>
           {items}
         </View>
       );
